@@ -90,21 +90,6 @@ $selectionBackgroundColor: #134674;
 	box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Defaults img followed by header to overlay the header */
-.reveal img.background ~ h1,
-.reveal img.background ~ h2,
-.reveal img.background ~ h3,
-.reveal img.background ~ h4 {
-  width: 100%;
-  position: relative;
-  top: -600px;
-  text-align: center;
-}
-
-.reveal img.background {
-  min-height: 600px;
-}
-
 /* An image without the box shadow */
 .reveal img.noshadow {
   box-shadow: none;
@@ -144,45 +129,37 @@ h4.middle2 {
   margin-top: 225px;
 }
 
-img.background + h1.bottom,
-img.background + h2.bottom,
-img.background + h3.bottom,
-img.background + h4.bottom {
-  margin-top: 380px;
+.reveal .typing {
+  font-family: 'Courier';
+  font-weight: bold;
 }
 
-h1.comic,
-h2.comic,
-h3.comic,
-h4.comic {
-  font-family: "Bangers";
+.reveal .computer {
+  font-family: 'Press Start 2P';
+}
+
+.reveal .comic {
+  font-family: 'Bangers';
   letter-spacing: 0em;
 }
 
-h1.spoken,
-h2.spoken,
-h3.spoken,
-h4.spoken {
+.reveal .spoken {
   font-family: 'Oswald';
 }
 
-h1.computer,
-h2.computer,
-h3.computer,
-h4.computer {
-  font-family: 'Press Start 2P';
-  letter-spacing: 0em;
-}
-
-h1.dotted,
-h2.dotted,
-h3.dotted,
-h4.dotted {
+.reveal .dotted {
   font-family: 'Raleway Dots';
   letter-spacing: 0.1em;
   word-spacing: 0.3em;
 }
 
+.reveal li:first-child {
+  margin-top: 20px;
+}
+
+.reveal li {
+  margin-bottom: 10px;
+}
 
 /* hide vertical scrollbar */
 html {

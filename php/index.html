@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/redhat.css" id="theme">
 
+    <!-- Full screen images (https://github.com/regisb/reveal.js-fullscreen-img) -->
+    <link rel="stylesheet" href="css/fullscreen-img.css">
+
     <!-- For syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
 
@@ -34,7 +37,8 @@
 
       <div class="slides">
         <style>
-          .title .reveal .state-background {
+
+          .wizard .reveal .state-background {
             background:url(images/wizard_tower.png);
             background-repeat:no-repeat;
             background-position:center center;
@@ -48,15 +52,163 @@
              50% {opacity: 0.5;}
              100% {opacity: 0.0;}
           }
+
+          .suspect .reveal .state-background {
+            background:url(images/eyebrow.png);
+            background-repeat:no-repeat;
+            background-position:center center;
+            opacity:0.5;
+          }
+
+          .namespaces .reveal .state-background {
+            background:url(images/japanese_house.png);
+            background-repeat:no-repeat;
+            background-position:center center;
+            opacity:0.7;
+          }
+
+          .selinux .reveal .state-background {
+            background:url(images/norad_vault.png);
+            background-repeat:no-repeat;
+            background-position:center center;
+            opacity:0.7;
+          }
         </style>
 
-        <section>
-          <h3 class="middle">Northeast GNU / Linuxfest</h3>
-        </section>
-
-        <section data-state="title">
+        <section data-state="wizard">
           <h3 class="middle2">The Linux Wizardry Behind the OpenShift PaaS</h3>
           <p>Matt Hicks, Director of OpenShift, Red Hat</p>
+        </section>
+
+        <section>
+          <h3>So What Is</h3>
+          <img class="noshadow" src="images/openshift.png">
+        </section>
+
+        <section>
+          <h3 class="middle">A Platform as a Service (PaaS)</h3>
+        </section>
+
+        <section>
+          <img class="background" src="images/cloud_models.png">
+        </section>
+
+        <section>
+          <h4 class="middle2">You focus on your application</h4>
+          <h4>We'll focus on the OS</h4>
+        </section>
+
+        <section data-state="wizard">
+          <h3 class="middle">So where is the wizardry?</h3>
+        </section>
+
+        <section>
+          <h2 class="middle comic">Introducing Linux Containers</h2>
+        </section>
+
+        <section data-state="suspect">
+          <h2 class="middle2 spoken">Containers?</h2>
+          <h3 class="spoken">What about virtualization?</h3>
+        </section>
+
+        <section>
+          <h3>Virtualization has many strengths</h3>
+          <ul>
+            <li class="fragment roll-in">Secure segmentation of workloads
+            <li class="fragment roll-in">Strong networking segmentation
+            <li class="fragment roll-in">Widespread understanding
+          </ul>
+        </section>
+
+        <section>
+          <h3>... and disadvantages</h3>
+          <ul>
+            <li class="fragment roll-in">Sometimes a full VM isn't warranted
+            <li class="fragment roll-in">A running OS is a lot of overhead
+            <li class="fragment roll-in">Each VM needs to be maintained
+          </ul>
+        </section>
+
+        <section>
+          <h3>Containers have advantages</h3>
+          <ul>
+            <li class="fragment roll-in">Very lightweight, all sharing the core OS
+            <li class="fragment roll-in">Ability to share resources as needed
+            <li class="fragment roll-in">Can reduce VM sprawl
+          </ul>
+        </section>
+
+        <section>
+          <h3>... and disadvantages</h3>
+          <ul>
+            <li class="fragment roll-in">Still actively evolving
+            <li class="fragment roll-in">Network segmentation is ... complex
+            <li class="fragment roll-in">Let's just say it's 'low level'
+          </ul>
+        </section>
+
+        <section>
+          <h3 class="middle2 spoken"><em>Containers&nbsp;</em> is a little generic</h3>
+          <h4 class="spoken">We're at a Linux conference, let's break it down</h4>
+        </section>
+
+        <section>
+          <h3>A Container to OpenShift</h3>
+          <ul>
+            <li class="fragment roll-in">Kernel namespace segmentation
+            <li class="fragment roll-in">Control group workload management
+            <li class="fragment roll-in">SELinux protection
+          </ul>
+        </section>
+
+        <section data-state="namespaces">
+          <h2 class="middle">Kernel Namespaces</h2>
+        </section>
+
+        <section>
+          <h3>Kernel Namespaces</h3>
+          <ul>
+            <li>Mount namespaces - filesystem 'restructing'
+            <li>UTS namespaces - hostname namespacing
+            <li>IPC / PID namespaces - process isolation
+            <li>Network namespaces - network stack isolation
+            <li>User namespaces - uid / gid isolation
+          </ul>
+        </section>
+
+        <section data-state="control-groups">
+          <h2 class="middle">Control Groups</h2>
+        </section>
+
+        <section>
+          <h3>Some Control Group Subsystems</h3>
+          <ul>
+            <li>blkio - IO controls
+            <li>cpu - CPU controls
+            <li>memory - Memory controls
+            <li>net_cls - Networking tagging
+              <ul><li>Combine with something like 'tc' for controls</li></ul>
+            <li>net_prio - Network interface priority
+          </ul>
+        </section>
+
+        <section data-state="selinux">
+          <h2 class="middle">SELinux</h2>
+        </section>
+
+        <section>
+          <h3 class="middle2">SELinux Step 1. Unlearn this:</h3>
+          <h4 class="typing">set enforce 0</h4>
+        </section>
+
+        <section>
+          <h3>SELinux</h3>
+          <h4>(the last line of defense)</h4>
+          <ul>
+            <li>Whitelist approach to security (i.e. MAC)
+            <li>Very effective in controlled use cases
+            <li>Critical to control malicious activity
+          </ul>
         </section>
 
         <section>
@@ -70,6 +222,10 @@
           <h3>Attributions</h3>
           <ol>
             <li>Wizard Tower - http://bit.ly/ZtRKpW
+            <li>Gridlock - http://bit.ly/IhOM4f
+            <li>Japanese House - http://bit.ly/Z5eIUi
+            <li>Norad Vault - http://bit.ly/Z5f7pW
+            <li>Raised Eyebrow - http://bit.ly/WtfhIO
           </ol>
         </section>
 
@@ -98,6 +254,7 @@
           { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
           { src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
           { src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'lib/js/fullscreen-img.js' },
           { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
           { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
