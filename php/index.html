@@ -67,6 +67,13 @@
             opacity:0.7;
           }
 
+          .cgroups .reveal .state-background {
+            background:url(images/highway.png);
+            background-repeat:no-repeat;
+            background-position:center center;
+            opacity:0.7;
+          }
+
           .selinux .reveal .state-background {
             background:url(images/norad_vault.png);
             background-repeat:no-repeat;
@@ -176,7 +183,7 @@
           </ul>
         </section>
 
-        <section data-state="control-groups">
+        <section data-state="cgroups">
           <h2 class="middle">Control Groups</h2>
         </section>
 
@@ -197,13 +204,12 @@
         </section>
 
         <section>
-          <h3 class="middle2">SELinux Step 1. Unlearn this:</h3>
+          <h3 class="middle2">Step 1. Unlearn this:</h3>
           <h4 class="typing">set enforce 0</h4>
         </section>
 
         <section>
-          <h3>SELinux</h3>
-          <h4>(the last line of defense)</h4>
+          <h3>Step 2. Know it's strengths</h3>
           <ul>
             <li>Whitelist approach to security (i.e. MAC)
             <li>Very effective in controlled use cases
@@ -212,8 +218,20 @@
         </section>
 
         <section>
+          <h3>Learn More</h3>
+          <ul>
+            <li>Kernel Namespaces - http://bit.ly/WuXpZm
+            <li>CGroups - http://red.ht/14IxJ2l
+            <li>SELinux - http://bit.ly/2rTL4h
+            <li>OpenShift (GitHub) - http://bit.ly/13Y5xe1
+            <li>OpenShift (Google+) - http://bit.ly/VFuWkP
+          </ul>
+        </section>
+
+        <section>
           <h3>Thank you</h3>
           <p>This presentation running on <a href="http://northeastlinuxfest-oncloud.rhcloud.com">OpenShift</a></p>
+          <p>Source available on <a href="http://github.com/matthicksj/wizardry-presentation">GitHub</a></p>
           <p>Developed in HTML5 with <a href="https://github.com/hakimel/reveal.js">reveal.js</a></p>
           <p>Matt Hicks, <a href="http://twitter.com/matthicksj">@matthicksj</a></p>
         </section>
@@ -226,6 +244,7 @@
             <li>Japanese House - http://bit.ly/Z5eIUi
             <li>Norad Vault - http://bit.ly/Z5f7pW
             <li>Raised Eyebrow - http://bit.ly/WtfhIO
+            <li>Highway - http://bit.ly/ZGdC08
           </ol>
         </section>
 
