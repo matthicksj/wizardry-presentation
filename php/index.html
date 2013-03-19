@@ -203,9 +203,9 @@
           <h2 class="middle">SELinux</h2>
         </section>
 
-        <section>
+        <section data-state="selinux-disable">
           <h3 class="middle2">Step 1. Unlearn this:</h3>
-          <h4 class="typing">setenforce 0</h4>
+          <h4 id="setenforce" class="fragment">$ setenforce 0</h4>
         </section>
 
         <section>
@@ -254,6 +254,7 @@
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.min.js"></script>
     <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquerytypewriter.js"></script>
 
     <script>
 
@@ -279,18 +280,18 @@
         ]
       });
 
-      /*
-      $(document).ready(function () {
-        setInterval(function() {
-          $('body').toggleClass('a b');
-        }, 5000);
-      });
-      */
-     /*
-     $('body').click(function() {
-      $(this).toggleClass('a b');
-     });
-     */
+      // Add a typewriter effect on the setenforce text
+      Reveal.addEventListener( 'fragmentshown', function( event ) {
+        // Make sure the fragment is the one we are looking for
+        if (event.fragment.id == 'setenforce') {
+          $('#' + event.fragment.id).typewrite({
+            'delay': 100, //time in ms between each letter
+            'extra_char': '', //"cursor" character to append after each display
+            'trim': true, // Trim the string to type (Default: false, does not trim)
+            'callback': null // if exists, called after all effects have finished
+          });
+        }
+      } );
     </script>
 
     <div class="footer" class="share-reveal" style="position: absolute; bottom: 10px; left: 50%; margin-left: -140px; z-index: 20;">
