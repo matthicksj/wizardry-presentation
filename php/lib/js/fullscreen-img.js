@@ -17,13 +17,15 @@ function fullscreen(event) {
     var size = event.currentSlide.getAttribute("fullscreen-size");
     if(size != "contain") {
       document.body.style.backgroundSize = "cover";
+      document.body.css("opacity", "0.7");
+      console.log(document.body.style);
     }
     else {
       // Put image in 'contain' mode with black background
       // TODO store background color and use it. This is possible by regexping
       // the background property and replacing the 2nd value by the image url.
       // See http://www.w3schools.com/cssref/css3_pr_background.asp
-      document.body.style.backgroundColor = "#ffffff";
+      //document.body.style.backgroundColor = "#ffffff";
       document.body.style.backgroundSize  = "contain";
       document.body.style.backgroundRepeat = "no-repeat";
       document.body.style.backgroundAttachment = "fixed";
